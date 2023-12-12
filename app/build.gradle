@@ -10,7 +10,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.tugasakhirmobile"
+        applicationId "com.D121211088.film"
         minSdk 24
         targetSdk 33
         versionCode 1
