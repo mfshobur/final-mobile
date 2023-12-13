@@ -45,8 +45,8 @@ class MainViewModel(private val moviesRepository: MoviesRepository): ViewModel()
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MyApplication)
-                val newsRepository = application.container.moviesRepository
-                MainViewModel(newsRepository)
+                val moviesRepository = application.container.moviesRepository
+                MainViewModel(moviesRepository)
             }
         }
     }

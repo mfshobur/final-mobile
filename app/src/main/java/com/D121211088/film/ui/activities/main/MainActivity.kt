@@ -22,10 +22,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
-import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -74,9 +72,24 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun ListMoviesScreen(mainUiState: MainUiState, modifier: Modifier = Modifier) {
         when (mainUiState) {
-            is MainUiState.Loading -> Text(text = "Sedang Loading", fontSize = 16.sp)
-            is MainUiState.Error -> Text(text = "Terjadi Error", fontSize = 16.sp)
+            is MainUiState.Loading -> CenterText(text = "Loading...")
+            is MainUiState.Error -> CenterText(text = "Something Error")
             is MainUiState.Success -> MovieList(mainUiState.movies)
+        }
+    }
+
+    @Composable
+    fun CenterText(text: String) {
+        // Wrap the content with a Box to apply the centering modifiers
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp), // Optional padding
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = text,
+            )
         }
     }
 
